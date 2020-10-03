@@ -167,10 +167,6 @@ install_options(){
     output "[13] Alterar tema."
     output "[14] Redefinição de senha raiz de emergência MariaDB."
     output "[15] Reinicialização de informações de host de banco de dados de emergência."
-    output "[16] Tradução do painel."
-    output "[17] Desinstalar painel."
-    
-     
     read choice
     case $choice in
         1) installoption=1
@@ -217,12 +213,6 @@ install_options(){
             ;;
         15) installoption=15
             output "Você selecionou redefinição das informações do Host do banco de dados."
-            ;;
-        15) installoption=16
-            output "Você selecionou a tradução do painel."
-            ;;
-        15) installoption=17
-            output "Você selecionou a desinstalação do painel."
             ;;
         * ) output "Você não selecionou uma opção valida."
             install_options
@@ -1461,10 +1451,4 @@ case $installoption in
         ;;
     15) database_host_reset
         ;;
-    16) bash <(curl -r https://raw.githubusercontent.com/zGumeloBr/traducao-pt-br-pterodactyl-panel/master/traducao-pterodactyl-pt-br.sh)
-        ;;
-    17) apt install zip
-        zip Painel /srv/daemon/ /srv/daemon-data/ /var/www/pterodactyl/
-        ;;
-
 esac
